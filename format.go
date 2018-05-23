@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	timeFormat     = "2006-01-02T15:04:05-0700"
-	termTimeFormat = "01-02|15:04:05"
+	timeFormat     = time.StampMilli
+	termTimeFormat = time.StampMilli
 	floatFormat    = 'f'
 	termMsgJust    = 40
 )
@@ -220,9 +220,9 @@ func formatLogfmtValue(value interface{}) string {
 	case bool:
 		return strconv.FormatBool(v)
 	case float32:
-		return strconv.FormatFloat(float64(v), floatFormat, 3, 64)
+		return strconv.FormatFloat(float64(v), floatFormat, -1, 64)
 	case float64:
-		return strconv.FormatFloat(v, floatFormat, 3, 64)
+		return strconv.FormatFloat(v, floatFormat, -1, 64)
 	case int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64:
 		return fmt.Sprintf("%d", value)
 	case string:

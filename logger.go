@@ -108,7 +108,6 @@ func (l *logger) write(msg string, lvl Lvl, ctx []interface{}) {
 		Lvl:  lvl,
 		Msg:  msg,
 		Ctx:  newContext(l.ctx, ctx),
-		Call: stack.Caller(2),
 		KeyNames: RecordKeyNames{
 			Time: timeKey,
 			Msg:  msgKey,
